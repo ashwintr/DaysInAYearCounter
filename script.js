@@ -1,4 +1,14 @@
 
+function getFact(days) {
+  // Find the closest day number that has a fact
+  const dayNumbers = Object.keys(dayFacts).map(Number);
+  const closestDay = dayNumbers.reduce((prev, curr) => {
+    return Math.abs(curr - days) < Math.abs(prev - days) ? curr : prev;
+  });
+  return dayFacts[closestDay];
+}
+
+
 function calculateDaysLeft() {
   const today = new Date();
   const currentYear = today.getFullYear();
